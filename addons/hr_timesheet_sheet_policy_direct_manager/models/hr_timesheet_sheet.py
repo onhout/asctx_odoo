@@ -18,7 +18,7 @@ class HrTimesheetSheet(models.Model):
         self.ensure_one()
         res = super()._get_possible_reviewers()
         if self.review_policy == 'direct_manager':
-            res = res | self.employee_id.parent_id.user_id
+            res = res | (self.employee_id.parent_id.user_id | self.env.ref('hr_timesheet.group_timesheet_manager').users)
         return res
 
     @api.multi
