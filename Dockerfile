@@ -27,3 +27,4 @@ RUN conda config --add channels bioconda \
 
 RUN pip3 install wheel
 RUN pip3 install pillow pytesseract pdf2image
+
